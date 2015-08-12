@@ -11,7 +11,7 @@ fi
 #KERNELDIR=<your kernel directory>
 #DISCIMAGE=<kernel module installation path>
 
-git clone -b omap5/next git://git.ti.com/graphics/omap5-sgx-ddk-linux.git ./src --depth=1
+git clone -b dra7/k4.1 git://git.ti.com/graphics/omap5-sgx-ddk-linux.git ./src --depth=1
 
 x86_dir="/opt/github/bb.org/ti-4.1/normal"
 x86_compiler="gcc-linaro-4.9-2015.02-3-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-"
