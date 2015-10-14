@@ -1,6 +1,5 @@
 #!/bin/bash -e
 
-DIR="$PWD"
 ARCH=$(uname -m)
 
 if [ "x${ARCH}" = "xarmv7l" ] ; then
@@ -14,26 +13,20 @@ else
 fi
 
 package="ti-sgx"
-base_dir="${DIR}/tmp/"
+base_dir="./"
 
 device="5430"
 
-if [ -d ${base_dir} ] ; then
-	rm -rf ${base_dir} || true
-else
-	mkdir -p ${base_dir} || true
-fi
-
-if [ -f ${base_dir}../src/eurasia_km/eurasiacon/binary2_omap${device}_linux_release/target/kbuild/omapdrm_pvr.ko ] ; then
+if [ -f ${base_dir}/src/eurasia_km/eurasiacon/binary2_omap${device}_linux_release/target/kbuild/omapdrm_pvr.ko ] ; then
 
 	#modules
-	cp -v ${base_dir}../src/eurasia_km/eurasiacon/binary2_omap${device}_linux_release/target/kbuild/omapdrm_pvr.ko ${base_dir}
-#	cp -v ${base_dir}../src/gfx_rel_${device}.x/omaplfb.ko ${base_dir}
-#	cp -v ${base_dir}../src/gfx_rel_${device}.x/bufferclass_ti.ko ${base_dir}
+	cp -v ${base_dir}/src/eurasia_km/eurasiacon/binary2_omap${device}_linux_release/target/kbuild/omapdrm_pvr.ko ${base_dir}
+#	cp -v ${base_dir}/src/gfx_rel_${device}.x/omaplfb.ko ${base_dir}
+#	cp -v ${base_dir}/src/gfx_rel_${device}.x/bufferclass_ti.ko ${base_dir}
 
 	#readme
-	cp -v ${base_dir}../src/eurasia_km/README ${base_dir}
-	cp -v ${base_dir}../src/eurasia_km/MIT-COPYING ${base_dir}
+	cp -v ${base_dir}/src/eurasia_km/README ${base_dir}
+	cp -v ${base_dir}/src/eurasia_km/MIT-COPYING ${base_dir}
 
 	echo "Section: misc" > ${base_dir}control
 	echo "Priority: optional" >> ${base_dir}control
@@ -55,14 +48,11 @@ if [ -f ${base_dir}../src/eurasia_km/eurasiacon/binary2_omap${device}_linux_rele
 	echo " Kernel modules for ${package} devices" >> ${base_dir}control
 	echo "" >> ${base_dir}control
 
-	cd ${base_dir}
-
 	equivs-build control
-	cp -v *.deb ${DIR}/
 
-	cd ${DIR}/
+	rm -rf omapdrm_pvr.ko || true
+	rm -rf README || true
+	rm -rf MIT-COPYING || true
+	rm -rf control || true
 
-	if [ -d ${DIR}/tmp ] ; then
-		rm -rf ${DIR}/tmp || true
-	fi
 fi
