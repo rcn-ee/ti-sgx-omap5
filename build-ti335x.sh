@@ -15,9 +15,9 @@ if [ -f .builddir ] ; then
 	x86_compiler="gcc-linaro-4.9-2015.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-"
 
 	if [ "x${ARCH}" = "xarmv7l" ] ; then
-		make_options="CROSS_COMPILE= KERNELDIR=/build/buildd/linux-src"
+		make_options="CROSS_COMPILE= KERNELDIR=/build/buildd/linux-src TARGET_PRODUCT=${device}"
 	else
-		make_options="CROSS_COMPILE=/home/voodoo/dl/gcc/${x86_compiler} KERNELDIR=${x86_dir}/KERNEL"
+		make_options="CROSS_COMPILE=/home/voodoo/dl/gcc/${x86_compiler} KERNELDIR=${x86_dir}/KERNEL TARGET_PRODUCT=${device}"
 	fi
 
 	cd ./src/eurasia_km/eurasiacon/build/linux2/omap_linux
