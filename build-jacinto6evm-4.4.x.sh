@@ -23,6 +23,7 @@ if [ -f .builddir ] ; then
 	cd ./src/eurasia_km/eurasiacon/build/linux2/omap_linux
 
 	make ARCH=arm ${make_options} clean
+	echo "make ARCH=arm ${make_options}"
 	make ARCH=arm ${make_options}
 fi
 #
