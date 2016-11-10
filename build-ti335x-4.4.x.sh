@@ -11,7 +11,7 @@ if [ -f .builddir ] ; then
 
 	git clone -b ${branch} https://github.com/rcn-ee/ti-omap5-sgx-ddk-linux ./src --depth=1
 	cd ./src/
-	git am ../../0001-sgx-add-fno-PIE.patch
+	patch -p1 < ../../0001-sgx-add-fno-PIE.patch
 	cd ../
 
 	x86_dir="/opt/github/bb.org/ti-4.4/normal"
