@@ -1,0 +1,26 @@
+From 33749b5593fd2fdf645f11c12c6ee2cf5f36ae6b Mon Sep 17 00:00:00 2001
+From: Robert Nelson <robertcnelson@gmail.com>
+Date: Thu, 10 Nov 2016 15:20:07 -0600
+Subject: [PATCH] sgx: add -fno-PIE
+
+Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
+---
+ eurasia_km/eurasiacon/build/linux2/buildvars.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/eurasia_km/eurasiacon/build/linux2/buildvars.mk b/eurasia_km/eurasiacon/build/linux2/buildvars.mk
+index f30e467..6024b45 100644
+--- a/eurasia_km/eurasiacon/build/linux2/buildvars.mk
++++ b/eurasia_km/eurasiacon/build/linux2/buildvars.mk
+@@ -48,7 +48,7 @@
+ 
+ # These flags are used for kernel, User C and User C++
+ #
+-COMMON_FLAGS := -W -Wall
++COMMON_FLAGS := -W -Wall -fno-PIE
+ 
+ # Some GCC warnings are C only, so we must mask them from C++
+ #
+-- 
+2.10.2
+
