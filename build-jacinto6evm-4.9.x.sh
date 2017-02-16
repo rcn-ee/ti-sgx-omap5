@@ -14,13 +14,14 @@ if [ -f .builddir ] ; then
 	patch -p1 < ../../0001-sgx-add-fno-PIE.patch
 	cd ../
 
-	x86_dir="/opt/github/bb.org/ti-4.9/normal"
-	x86_compiler="gcc-linaro-4.9-2016.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-"
-
 	if [ "x${ARCH}" = "xarmv7l" ] ; then
 		make_options="CROSS_COMPILE= KERNELDIR=/build/buildd/linux-src TARGET_PRODUCT=${device}"
 	else
-		make_options="CROSS_COMPILE=/home/voodoo/dl/gcc/${x86_compiler} KERNELDIR=${x86_dir}/KERNEL TARGET_PRODUCT=${device}"
+		x86_dir="`pwd`/../../normal"
+		if [ -f `pwd`/../../normal/.CC ] ; then
+			. `pwd`/../../normal/.CC
+			make_options="CROSS_COMPILE=${CC} KERNELDIR=${x86_dir}/KERNEL TARGET_PRODUCT=${device}"
+		fi
 	fi
 
 	cd ./src/eurasia_km/eurasiacon/build/linux2/omap_linux
