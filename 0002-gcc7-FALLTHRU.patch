@@ -1,20 +1,23 @@
 diff --git a/eurasia_km/services4/srvkm/common/devicemem.c b/eurasia_km/services4/srvkm/common/devicemem.c
-index baf7c41..cc25023 100644
+index baf7c41..ffb663a 100644
 --- a/eurasia_km/services4/srvkm/common/devicemem.c
 +++ b/eurasia_km/services4/srvkm/common/devicemem.c
-@@ -1067,11 +1067,11 @@ PVRSRV_ERROR FreeMemCallBackCommon(PVRSRV_KERNEL_MEM_INFO *psMemInfo,
+@@ -1067,12 +1067,12 @@ PVRSRV_ERROR FreeMemCallBackCommon(PVRSRV_KERNEL_MEM_INFO *psMemInfo,
  		switch(psMemInfo->memType)
  		{
  			/* Fall through: Free only what we should for each memory type */
 -			case PVRSRV_MEMTYPE_WRAPPED:
 -			case PVRSRV_MEMTYPE_ION:
 -			case PVRSRV_MEMTYPE_DMABUF:
+-				freeExternal(psMemInfo);
+-			case PVRSRV_MEMTYPE_DEVICE:
+-			case PVRSRV_MEMTYPE_DEVICECLASS:
 +			case PVRSRV_MEMTYPE_WRAPPED: /* FALLTHRU */
 +			case PVRSRV_MEMTYPE_ION: /* FALLTHRU */
 +			case PVRSRV_MEMTYPE_DMABUF: /* FALLTHRU */
- 				freeExternal(psMemInfo);
--			case PVRSRV_MEMTYPE_DEVICE:
++				freeExternal(psMemInfo); /* FALLTHRU */
 +			case PVRSRV_MEMTYPE_DEVICE: /* FALLTHRU */
- 			case PVRSRV_MEMTYPE_DEVICECLASS:
++			case PVRSRV_MEMTYPE_DEVICECLASS: /* FALLTHRU */
  #if defined(SUPPORT_ION)
  				if (psMemInfo->hIonSyncInfo)
+ 				{
