@@ -1,0 +1,18 @@
+diff --git a/eurasia_km/eurasiacon/build/linux2/buildvars.mk b/eurasia_km/eurasiacon/build/linux2/buildvars.mk
+index 6024b45..baa2122 100644
+--- a/eurasia_km/eurasiacon/build/linux2/buildvars.mk
++++ b/eurasia_km/eurasiacon/build/linux2/buildvars.mk
+@@ -90,11 +90,13 @@ TESTED_TARGET_USER_FLAGS := \
+  $(call cc-option,-Wno-missing-field-initializers) \
+  $(call cc-option,-fdiagnostics-show-option) \
+  $(call cc-option,-Wno-self-assign) \
++ $(call cc-option,-Wno-stringop-truncation) \
+  $(call cc-option,-Wno-parentheses-equality)
+ TESTED_HOST_USER_FLAGS := \
+  $(call host-cc-option,-Wno-missing-field-initializers) \
+  $(call host-cc-option,-fdiagnostics-show-option) \
+  $(call host-cc-option,-Wno-self-assign) \
++ $(call host-cc-option,-Wno-stringop-truncation) \
+  $(call host-cc-option,-Wno-parentheses-equality)
+ 
+ # These flags are clang-specific.

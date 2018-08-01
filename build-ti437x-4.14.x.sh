@@ -12,7 +12,7 @@ if [ -f .builddir ] ; then
 	git clone -b ${branch} https://github.com/rcn-ee/ti-omap5-sgx-ddk-linux ./src --depth=1
 	cd ./src/
 	patch -p1 < ../../0001-sgx-add-fno-PIE.patch
-	patch -p1 < ../../0002-gcc7-FALLTHRU.patch
+	patch -p1 < ../../0003-gcc8.patch
 	cd ../
 
 	if [ "x${ARCH}" = "xarmv7l" ] ; then
