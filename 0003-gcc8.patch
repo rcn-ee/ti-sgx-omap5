@@ -1,5 +1,5 @@
 diff --git a/eurasia_km/eurasiacon/build/linux2/buildvars.mk b/eurasia_km/eurasiacon/build/linux2/buildvars.mk
-index 6024b45..baa2122 100644
+index f30e467..749b3b1 100644
 --- a/eurasia_km/eurasiacon/build/linux2/buildvars.mk
 +++ b/eurasia_km/eurasiacon/build/linux2/buildvars.mk
 @@ -90,11 +90,13 @@ TESTED_TARGET_USER_FLAGS := \
@@ -16,3 +16,12 @@ index 6024b45..baa2122 100644
   $(call host-cc-option,-Wno-parentheses-equality)
  
  # These flags are clang-specific.
+@@ -168,6 +170,8 @@ TESTED_KBUILD_FLAGS := \
+  $(call kernel-cc-option,-Wno-aggregate-return) \
+  $(call kernel-cc-option,-Wno-unused-but-set-variable) \
+  $(call kernel-cc-option,-Wno-old-style-declaration) \
++ $(call kernel-cc-option,-Wno-stringop-truncation) \
++ $(call kernel-cc-option,-Wno-error=cast-function-type) \
+  $(call kernel-cc-optional-warning,-Wbad-function-cast) \
+  $(call kernel-cc-optional-warning,-Wcast-qual) \
+  $(call kernel-cc-optional-warning,-Wcast-align) \
