@@ -2,7 +2,8 @@
 
 ARCH=$(uname -m)
 device="jacinto6evm"
-branch="ti-img-sgx/1.17.4948957/k4.14"
+branch="ti-img-sgx/1.14.3699939/k4.14"
+#branch="ti-img-sgx/1.17.4948957/k4.14"
 
 if [ -f .builddir ] ; then
 	if [ -d ./src ] ; then
