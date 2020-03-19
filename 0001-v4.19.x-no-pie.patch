@@ -1,0 +1,26 @@
+From 754d5b9690b130a4f9cf57e90c6893d12b243e4e Mon Sep 17 00:00:00 2001
+From: Robert Nelson <robertcnelson@gmail.com>
+Date: Thu, 19 Mar 2020 16:31:09 -0500
+Subject: [PATCH] v4.19.x-no-pie
+
+Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
+---
+ eurasia_km/eurasiacon/build/linux2/buildvars.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/eurasia_km/eurasiacon/build/linux2/buildvars.mk b/eurasia_km/eurasiacon/build/linux2/buildvars.mk
+index 2e549d4..daadb82 100644
+--- a/eurasia_km/eurasiacon/build/linux2/buildvars.mk
++++ b/eurasia_km/eurasiacon/build/linux2/buildvars.mk
+@@ -51,7 +51,7 @@
+ 
+ # These flags are used for kernel, User C and User C++
+ #
+-COMMON_FLAGS := -W -Wall
++COMMON_FLAGS := -W -Wall -fno-PIE
+ 
+ # Some GCC warnings are C only, so we must mask them from C++
+ #
+-- 
+2.25.1
+
