@@ -12,8 +12,11 @@ if [ -f .builddir ] ; then
 
 	git clone -b ${branch} https://github.com/rcn-ee/ti-omap5-sgx-ddk-linux ./src --depth=1
 	cd ./src/
+	echo "patch -p1 < ../../0001-sgx-add-fno-PIE.patch"
 	patch -p1 < ../../0001-sgx-add-fno-PIE.patch
+	echo "patch -p1 < ../../0003-gcc8.patch"
 	patch -p1 < ../../0003-gcc8.patch
+	git diff
 	cd ../
 
 	if [ "x${ARCH}" = "xarmv7l" ] ; then
@@ -24,6 +27,12 @@ if [ -f .builddir ] ; then
 			. `pwd`/../../normal/.CC
 			make_options="CROSS_COMPILE=${CC} KERNELDIR=${x86_dir}/KERNEL TARGET_PRODUCT=${device}"
 		fi
+
+#		x86_dir="`pwd`/../../rt"
+#		if [ -f `pwd`/../../rt/.CC ] ; then
+#			. `pwd`/../../rt/.CC
+#			make_options="CROSS_COMPILE=${CC} KERNELDIR=${x86_dir}/KERNEL TARGET_PRODUCT=${device}"
+#		fi
 	fi
 
 	cd ./src/eurasia_km/eurasiacon/build/linux2/omap_linux
