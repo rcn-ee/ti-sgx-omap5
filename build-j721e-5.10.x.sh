@@ -23,8 +23,8 @@ if [ -f .builddir ] ; then
 	#PVR_BUILD = "release"
 	#PVR_WS = "wayland"
 	#KERNELDIR="${STAGING_KERNEL_DIR}" RGX_BVNC=${PVR_BVNC} BUILD=${PVR_BUILD} PVR_BUILD_DIR=${PVR_SOC} WINDOW_SYSTEM=${PVR_WS}
-	if [ "x${ARCH}" = "xarmv7l" ] ; then
-		make_options="CROSS_COMPILE= KERNELDIR=/build/buildd/linux-src RGX_BVNC=22.104.208.318 BUILD=release PVR_BUILD_DIR=j721e_linux WINDOW_SYSTEM=wayland"
+	if [ "x${ARCH}" = "xaarch64" ] ; then
+		make_options="CROSS_COMPILE=aarch64-linux-gnu- KERNELDIR=/build/buildd/linux-src RGX_BVNC=22.104.208.318 BUILD=release PVR_BUILD_DIR=j721e_linux WINDOW_SYSTEM=wayland"
 	else
 		x86_dir="`pwd`/../../normal-arm64"
 		if [ -f `pwd`/../../normal-arm64/.CC ] ; then
