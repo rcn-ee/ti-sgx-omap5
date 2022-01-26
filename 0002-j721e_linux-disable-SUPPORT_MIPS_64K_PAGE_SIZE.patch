@@ -1,0 +1,26 @@
+From 652f12bf7183fc6c843eb2d6d84138a16c68e586 Mon Sep 17 00:00:00 2001
+From: Robert Nelson <robertcnelson@gmail.com>
+Date: Tue, 25 Jan 2022 19:40:59 -0600
+Subject: [PATCH 2/2] j721e_linux: disable SUPPORT_MIPS_64K_PAGE_SIZE
+
+Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
+---
+ build/linux/j721e_linux/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/build/linux/j721e_linux/Makefile b/build/linux/j721e_linux/Makefile
+index a8c32d1..31c1c4f 100644
+--- a/build/linux/j721e_linux/Makefile
++++ b/build/linux/j721e_linux/Makefile
+@@ -47,7 +47,7 @@ PVRSRV_NEED_PVR_DPF := 1
+ PVRSRV_NEED_PVR_ASSERT := 1
+ PVR_SERVICES_DEBUG := 1
+ 
+-SUPPORT_MIPS_64K_PAGE_SIZE := 1
++SUPPORT_MIPS_64K_PAGE_SIZE := 0
+ 
+ # Virtualization Flags
+ PVRSRV_VZ_NUM_OSID := 1
+-- 
+2.30.2
+

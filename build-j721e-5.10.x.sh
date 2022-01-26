@@ -15,6 +15,8 @@ if [ -f .builddir ] ; then
 	cd ./src/
 	echo "patch -p1 < ../../0001-buildvars.mk-add-fno-PIE.patch"
 	patch -p1 < ../../0001-buildvars.mk-add-fno-PIE.patch
+	echo "patch -p1 < ../../0002-j721e_linux-disable-SUPPORT_MIPS_64K_PAGE_SIZE.patch"
+	patch -p1 < ../../0002-j721e_linux-disable-SUPPORT_MIPS_64K_PAGE_SIZE.patch
 	git diff
 	cd ../
 
