@@ -27,27 +27,6 @@ if [ -f .builddir ] ; then
 	git diff
 	cd ../
 
-	#branch="1.13-5776728/linux-k5.10"
-	#PVR_SOC = "j721e_linux"
-	#PVR_BVNC = "22.104.208.318"
-	#PVR_BUILD = "release"
-	#PVR_WS = "wayland"
-	#KERNELDIR="${STAGING_KERNEL_DIR}" RGX_BVNC=${PVR_BVNC} BUILD=${PVR_BUILD} PVR_BUILD_DIR=${PVR_SOC} WINDOW_SYSTEM=${PVR_WS}
-
-	#TARGET_PRODUCT_j7-evm = "j721e_linux"
-	#TARGET_PRODUCT_j7-hs-evm = "j721e_linux"
-	#TARGET_PRODUCT_j721s2-evm = "j721s2_linux"
-	#TARGET_PRODUCT_j721s2-hs-evm = "j721s2_linux"
-	#TARGET_PRODUCT_am62xx = "am62_linux"
-	#TARGET_BVNC_j7-evm = "22.104.208.318"
-	#TARGET_BVNC_j7-hs-evm = "22.104.208.318"
-	#TARGET_BVNC_j721s2-evm = "36.53.104.796"
-	#TARGET_BVNC_j721s2-hs-evm = "36.53.104.796"
-	#TARGET_BVNC_am62xx = "33.15.11.3"
-	#PVR_BUILD = "release"
-	#PVR_WS = "wayland"
-	#KERNELDIR="${STAGING_KERNEL_DIR}" RGX_BVNC=${TARGET_BVNC} BUILD=${PVR_BUILD} PVR_BUILD_DIR=${TARGET_PRODUCT} WINDOW_SYSTEM=${PVR_WS}'
-
 	PVR_SOC=am62_linux
 	PVR_BUILD=release
 	PVR_WS=wayland
